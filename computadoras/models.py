@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from django.db import models
 
 class Departamento(models.Model):
@@ -42,15 +44,25 @@ class Computadora(models.Model):
         ('PISO 0','PISO 0'),
     )
 
+    AREAS_CHOICES = (
+        ('Direccion general', 'Direccion general'),
+        ('Sistemas de informacion','Sistemas de informacion'),
+        ('Recursos humanos' ,'Recursos humanos'),
+        ('Recursos humanos','Recursos humanos'),
+        ('Evaluacion','Evaluacion'),
+        ('Hemeroteca','Hemeroteca'),
+        ('Diseño y comunicacion','Diseño y comunicacion'),
+    )
+
     operativo = models.CharField(max_length=50,choices=OPERATIVO_CHOICES, default='Windows 8')
     tipo = models.CharField(max_length=50,choices=TIPO_CHOICES, default='Escritorio')
-    maquina = models.CharField(max_length=50)
+    maquina = models.CharField(max_length=50,default='PC77')
     dominio = models.CharField(max_length=50, default='PC77')
-    modelo = models.CharField(max_length=50, default='PC77')
+    modelo = models.CharField(max_length=50)
     administrador = models.CharField(max_length=50, default='SOPTEC REDALYC')
     ubicacion = models.CharField(max_length=50,choices=PISO_CHOICES, default='PISO 2')
     actualizada = models.BooleanField(default=False)
-    departamento = Departamento() #models.ForeignKey(Departamento)
+    departamento = models.CharField(max_length=50,choices=AREAS_CHOICES, default='Hemeroteca') #Departamento() #models.ForeignKey(Departamento)
 
 
     def __str__(self):
