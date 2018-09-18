@@ -8,4 +8,4 @@ def dept_list(request):
 
 def comp_list(request):
     comps = Computadora.objects.all()
-    return return render(request, 'computadoras/comp_list.html', {'comps':comps})
+    return render(request, 'computadoras/comp_list.html', {'comps':comps})
