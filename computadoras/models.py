@@ -50,10 +50,10 @@ class Computadora(models.Model):
     administrador = models.CharField(max_length=50)
     ubicacion = models.CharField(max_length=50,choices=PISO_CHOICES, default='PISO 2')
     actualizada = models.BooleanField(default=False)
-    departamento = Departamento()
+    departamento = Departamento() #models.ForeignKey(Departamento)
 
 
     def __str__(self):
         actualizada = "Actualizada" if self.actualizada==True else "No actualizada"
-        return "Computadora{id:"+str(self.id)+",bien:"+ self.bien +", asignado:"+str(self.asignado)+", Ip:"+self.ip +", Dns:"+self.dns+", red:"+self.red+", operativo:"+self.operativo+", tipo:"+self.tipo+", maquina:"+self.maquina+", dominio:"+self.dominio+", modelo:"+self.modelo+", admin:"+self.administrador+", ubicacion:"+self.ubicacion+", actualizada:" +actualizada+"}"
+        return "Computadora{id:"+str(self.id)+",bien:"+ self.bien +", asignado:"+str(self.asignado)+", Ip:"+self.ip +", Dns:"+self.dns+", red:"+self.red+", operativo:"+self.operativo+", tipo:"+self.tipo+", maquina:"+self.maquina+", dominio:"+self.dominio+", modelo:"+self.modelo+", admin:"+self.administrador+", ubicacion:"+self.ubicacion+", actualizada:" +actualizada+", departamento: "+str(self.departamento)+"}"
 
