@@ -1,6 +1,7 @@
 # coding: utf-8
 
 from django.db import models
+from django.utils import timezone
 
 class Departamento(models.Model):
     id = models.AutoField(primary_key=True)
@@ -68,4 +69,23 @@ class Computadora(models.Model):
     def __str__(self):
         actualizada = "Actualizada" if self.actualizada==True else "No actualizada"
         return "Computadora{id:"+str(self.id)+",bien:"+ self.bien +", asignado:"+str(self.asignado)+", Ip:"+self.ip +", Dns:"+self.dns+", red:"+self.red+", operativo:"+self.operativo+", tipo:"+self.tipo+", maquina:"+self.maquina+", dominio:"+self.dominio+", modelo:"+self.modelo+", admin:"+self.administrador+", ubicacion:"+self.ubicacion+", actualizada:" +actualizada+", departamento: "+str(self.departamento) +"}"
+        
+        
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+    
+    def __str__(self):
+        return self.question_text
 
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+    def __str__(self):        
+        return self.choice_text
