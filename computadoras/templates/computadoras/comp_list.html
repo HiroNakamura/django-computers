@@ -1,0 +1,22 @@
+{% load staticfiles %}
+    <html>
+        <head>
+            <title>computadoras</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        </head>
+<body>
+    <h1>Computadoras</h1>
+
+    {% for comp in comps %}
+        <div class="content container">
+            <h3><a href="#">{{ comp.bien }}</a></h3>
+            <p>{{ comp.arrendado|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+
+</body>
+</html>
