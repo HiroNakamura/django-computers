@@ -11,8 +11,8 @@ class Departamento(models.Model):
 
 class Computadora(models.Model):
     id = models.AutoField(primary_key=True)
-    bien = models.CharField(max_length=50)
-    arrendado = models.CharField(max_length=50)
+    bien = models.CharField(max_length=50,default='MXL4332-')
+    arrendado = models.CharField(max_length=50,default='77')
     asignado = models.IntegerField(default=0)
     ip = models.GenericIPAddressField(default='148.215.24.1')
     dns = models.GenericIPAddressField(default='148.215.1.1')
