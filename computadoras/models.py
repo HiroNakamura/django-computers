@@ -45,15 +45,6 @@ class Computadora(models.Model):
         ('PISO 0','PISO 0'),
     )
 
-    AREAS_CHOICES = (
-        ('Direccion general', 'Direccion general'),
-        ('Sistemas de informacion','Sistemas de informacion'),
-        ('Recursos humanos' ,'Recursos humanos'),
-        ('Recursos humanos','Recursos humanos'),
-        ('Evaluacion','Evaluacion'),
-        ('Hemeroteca','Hemeroteca'),
-        ('Diseño y comunicacion','Diseño y comunicacion'),
-    )
 
     operativo = models.CharField(max_length=50,choices=OPERATIVO_CHOICES, default='Windows 8')
     tipo = models.CharField(max_length=50,choices=TIPO_CHOICES, default='Escritorio')
@@ -63,29 +54,10 @@ class Computadora(models.Model):
     administrador = models.CharField(max_length=50, default='SOPTEC REDALYC')
     ubicacion = models.CharField(max_length=50,choices=PISO_CHOICES, default='PISO 2')
     actualizada = models.BooleanField(default=False)
-    departamento = models.CharField(max_length=50,choices=AREAS_CHOICES, default='Hemeroteca') #Departamento() #models.ForeignKey(Departamento)
-
+    departamento = models.ForeignKey(Departamento)
 
     def __str__(self):
         actualizada = "Actualizada" if self.actualizada==True else "No actualizada"
         return "Computadora{id:"+str(self.id)+",bien:"+ self.bien +", asignado:"+str(self.asignado)+", Ip:"+self.ip +", Dns:"+self.dns+", red:"+self.red+", operativo:"+self.operativo+", tipo:"+self.tipo+", maquina:"+self.maquina+", dominio:"+self.dominio+", modelo:"+self.modelo+", admin:"+self.administrador+", ubicacion:"+self.ubicacion+", actualizada:" +actualizada+", departamento: "+str(self.departamento) +"}"
         
         
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-    
-    def __str__(self):
-        return self.question_text
-
-    def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
-
-
-class Choice(models.Model):
-    question = models.ForeignKey(Question)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
-    def __str__(self):        
-        return self.choice_text
