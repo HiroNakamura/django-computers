@@ -14,6 +14,11 @@ h1, h2, h3, h4 {
     font-family: 'Lobster';
 }
 
+h3.cabeza{
+    font-family: 'Luckiest Guy';
+}
+
+
 div{
     background-color: #E6E6E6;
     border-radius: 15px 15px 15px 15px;
