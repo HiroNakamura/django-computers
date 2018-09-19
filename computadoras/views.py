@@ -23,7 +23,6 @@ def dept_list(request):
 
 def comp_detalle(request, pk):
     comp = get_object_or_404(Computadora, pk=pk)
-    print "Bien: "+comp.bien
     return render(request, 'computadoras/comp_detalle.html', {'comp': comp})
 
 def comp_list(request):
