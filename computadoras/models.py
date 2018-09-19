@@ -59,5 +59,8 @@ class Computadora(models.Model):
     def __str__(self):
         actualizada = "Actualizada" if self.actualizada==True else "No actualizada"
         return "Computadora{id:"+str(self.id)+",bien:"+ self.bien +", asignado:"+str(self.asignado)+", Ip:"+self.ip +", Dns:"+self.dns+", red:"+self.red+", operativo:"+self.operativo+", tipo:"+self.tipo+", maquina:"+self.maquina+", dominio:"+self.dominio+", modelo:"+self.modelo+", admin:"+self.administrador+", ubicacion:"+self.ubicacion+", actualizada:" +actualizada+", departamento: "+str(self.departamento) +"}"
-        
+    
+    def actualizar(self):
+        tmp = "Actualizada" if self.actualizada==True else "No actualizada"
+        return tmp
         
