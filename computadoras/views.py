@@ -3,6 +3,7 @@ from .models import Departamento
 from .models import Computadora
 from django.views.defaults import page_not_found
 from django.conf import settings
+from .forms import ComputadoraForm
 
  
 def pag_error_404(request):
@@ -22,3 +23,14 @@ def dept_list(request):
 def comp_list(request):
     comps = Computadora.objects.all()
     return render(request, 'computadoras/comp_list.html', {'comps':comps})
+
+def comp_nueva(request):
+    try:
+        form = ComputadoraForm(request.POST)
+        comp = form.save(commit=False)
+        user = User.objects.get(username='fer')
+        comp.save()
+        print "Computadora almacenada"
+    except ValueError as error:
+        print "Ha ocurrido un error en el formulario: ",error
+    return render(request, 'computadoras/comp_edit', {'form': form})    
