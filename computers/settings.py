@@ -3,9 +3,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g#(9jotn7tg76xp49i46g^9+&k*z^mee*brri4z%6%tv&4gwvt'
-DEBUG = True
-ALLOWED_HOSTS = []
-
+DEBUG = True #False
+ALLOWED_HOSTS = [] #['*']
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -67,3 +66,5 @@ STATIC_URL = '/static/'
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
+PROJECT_NAME="Sistema de administracion de computadoras"
