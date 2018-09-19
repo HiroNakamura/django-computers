@@ -18,3 +18,19 @@ div{
     background-color: #E6E6E6;
     border-radius: 15px 15px 15px 15px;
 }
+
+#cabeza{
+    background-color: #E6E6E6;
+    width: 0px; 
+    left: 102px; 
+    position: relative; 
+    top: 16px;
+}
+
+#titulo{
+    background-color: #E6E6E6;
+    width: 990px;
+    left: 150px;
+    position: relative;
+    top: 16px;
+}
