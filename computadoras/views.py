@@ -20,6 +20,12 @@ def dept_list(request):
     deptos = Departamento.objects.all()
     return render(request, 'computadoras/dept_list.html', {'deptos':deptos})
 
+
+def comp_detalle(request, pk):
+    comp = get_object_or_404(Computadora, pk=pk)
+    print "Bien: "+comp.bien
+    return render(request, 'computadoras/comp_detalle.html', {'comp': comp})
+
 def comp_list(request):
     comps = Computadora.objects.all()
     return render(request, 'computadoras/comp_list.html', {'comps':comps})
