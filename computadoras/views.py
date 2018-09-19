@@ -4,7 +4,7 @@ from .models import Computadora
 
 
 def home(request):
-    return render(request, 'computadoras/home.html', {})
+    return render(request, 'computadoras/home.html',{})
 
 def dept_list(request):
     deptos = Departamento.objects.all()
