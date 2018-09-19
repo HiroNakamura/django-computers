@@ -65,6 +65,6 @@ class Computadora(models.Model):
         return tmp
 
     def asignar(self):
-        tmp = "-" if self.asignado==0 else str(self.asignado)
+        tmp = "" if self.asignado==0 else str(self.asignado)
         return tmp
         
