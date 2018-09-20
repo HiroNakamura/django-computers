@@ -6,6 +6,7 @@ from django.conf import settings
 from .forms import ComputadoraForm
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response, HttpResponseRedirect
 
 def pag_error_404(request):
     context={}
@@ -34,17 +35,16 @@ def comp_list(request):
     return render(request, 'computadoras/comp_list.html', {'comps':comps})
 
 def comp_nueva(request):
+    form = ComputadoraForm(request.POST)
     try:
-        form = ComputadoraForm(request.POST)
+        #form = ComputadoraForm(request.POST)
         print "formulario: ",form
         comp = form.save(commit=False)
         comp.save()
         print "Post guardado"
     except ValueError as error:
         print "Error al crear nuevo post: ",error
-    return render(request, 'blog/post_edit.html', {'form': form})
-
-
+    return render(request, 'computadoras/comp_nueva.html', {'form': form})
 
 def comp_edit(request, pk):
     comp = get_object_or_404(Computadora, pk=pk)
@@ -62,7 +62,7 @@ def comp_edit(request, pk):
             return render(request, 'computadoras/comp_list.html', {'comps': comps})
         else:
             print "form no valido"
-            form = ComputadoraForm(instance=post)
+            form = ComputadoraForm(instance=comp)
     else:
         print "form: ",form
         print valido
