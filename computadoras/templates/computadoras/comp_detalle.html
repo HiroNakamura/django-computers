@@ -3,12 +3,12 @@
 {% block content %}
     
     <div>
-    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+    <a class="btn btn-default" href="{% url 'comp_nueva' pk=comp.id %}">
     <span class="glyphicon glyphicon-pencil"></span></a>
     </div>
-
+<h4>Detalle</h4>
     <div class="content container">
-        <h3 class='cabeza'><a href="#">{{ comp.bien }}</a></h3>
+        <h3 class='cabeza'><a href="{% url 'comp_detalle' pk=comp.id %}">{{ comp.bien }}</a></h3>
         <p><span>No. </span> {{ comp.asignar }} </p>
         <div class="table-responsive">          
                 <table class="table" style="font-size: 12px;">

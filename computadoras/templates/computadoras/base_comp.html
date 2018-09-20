@@ -9,11 +9,8 @@
                     <link href='//fonts.googleapis.com/css?family=Monoton&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
                     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
                 </head>
-        
-        
         <body>
                 <div class="comp">
-   
     <h1 style="font-family: Monoton;">Computadoras  
         <a href="{% url 'comp_nueva' %}" class="top-menu">
         <span class="glyphicon glyphicon-plus"></span>
@@ -23,16 +20,9 @@
             <span class="glyphicon glyphicon-home"></span> Home
           </a></div> 
                 </div>
+{% block content %}
 
-                <div class="content container">
-                    <div class="row">
-                        <div class="col-md-8">
-                        {% block content %}
-
-                        {% endblock %}
-                        </div>
-                    </div>
-                </div>
-            </body>
+{% endblock %}          
+</body>
         
 </html>

@@ -1,17 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from .models import Departamento
 from .models import Computadora
 from django.views.defaults import page_not_found
 from django.conf import settings
 from .forms import ComputadoraForm
+from django.template import RequestContext
+from django.http import HttpResponse, HttpResponseRedirect
 
- 
 def pag_error_404(request):
     context={}
     context={"project_name":settings.PROJECT_NAME}
     return render(request,'computadoras/404.html',context)
     #return page_not_found(request, '404.html',{})
-
 
 def home(request):
     return render(request, 'computadoras/home.html',{})
@@ -21,8 +21,12 @@ def dept_list(request):
     return render(request, 'computadoras/dept_list.html', {'deptos':deptos})
 
 
+def base_comp(request):
+    return render(request, 'computadoras/base_comp.html', {})
+
 def comp_detalle(request, pk):
     comp = get_object_or_404(Computadora, pk=pk)
+    print "Comp pk:"+comp
     return render(request, 'computadoras/comp_detalle.html', {'comp': comp})
 
 def comp_list(request):
@@ -32,10 +36,34 @@ def comp_list(request):
 def comp_nueva(request):
     try:
         form = ComputadoraForm(request.POST)
+        print "formulario: ",form
         comp = form.save(commit=False)
-        user = User.objects.get(username='fer')
         comp.save()
-        print "Computadora almacenada"
+        print "Post guardado"
     except ValueError as error:
-        print "Ha ocurrido un error en el formulario: ",error
-    return render(request, 'computadoras/comp_edit', {'form': form})    
+        print "Error al crear nuevo post: ",error
+    return render(request, 'blog/post_edit.html', {'form': form})
+
+
+
+def comp_edit(request, pk):
+    comp = get_object_or_404(Computadora, pk=pk)
+    form = PostForm(request.POST, instance=comp)
+    valido = "Formulario valido" if form.is_valid() else "Formulario no valido"
+    if request.method == "POST":
+        print "form: ",form
+        print valido
+        if form.is_valid():
+            print "Formulario valido"
+            comp = form.save(commit=False)
+            #post.author = request.user
+            comp.save()
+            comps = Computadora.objects.all()
+            return render(request, 'computadoras/comp_list.html', {'comps': comps})
+        else:
+            print "form no valido"
+            form = ComputadoraForm(instance=post)
+    else:
+        print "form: ",form
+        print valido
+        return render(request, 'computadoras/comp_edit.html', {'form': form})

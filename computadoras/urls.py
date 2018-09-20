@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^departamentos/', views.dept_list, name='dept_list'),
     url(r'^computadoras/', views.comp_list, name='comp_list'),
     url(r'^computadoras/(?P<pk>[0-9]+)/$', views.comp_detalle, name='comp_detalle'),
-    url(r'^computadoras/nueva/$', views.comp_nueva, name='comp_nueva'),
+    url(r'^computadoras/nueva/', views.comp_nueva, name='comp_nueva'),
+    url(r'^computadoras/(?P<pk>[0-9]+)/edit/$', views.comp_edit, name='comp_edit'),
 ]
-

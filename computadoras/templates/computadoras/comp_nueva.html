@@ -1,0 +1,10 @@
+{% extends 'computadoras/base_comp' %}
+
+    
+{% block content %}
+<h1 style="font-family: Monoton;">Agregar computadora</h1>
+<form method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Guardar</button>
+</form>
+{% endblock %}

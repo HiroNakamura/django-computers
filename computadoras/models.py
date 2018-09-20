@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class Departamento(models.Model):
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    #user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     area = models.CharField(max_length=50)
     responsable = models.CharField(max_length=50)
     
@@ -14,7 +14,7 @@ class Departamento(models.Model):
 
 
 class Computadora(models.Model):
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    #user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     bien = models.CharField(max_length=50,default='MXL4332-')
     arrendado = models.CharField(max_length=50,default='77')
     asignado = models.IntegerField(default=0)
