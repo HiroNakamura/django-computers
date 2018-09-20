@@ -14,9 +14,11 @@ def pag_error_404(request):
     return render(request,'computadoras/404.html',context)
     #return page_not_found(request, '404.html',{})
 
+#http://localhost:8000
 def home(request):
     return render(request, 'computadoras/home.html',{})
 
+#http://localhost:8000/departamentos
 def dept_list(request):
     deptos = Departamento.objects.all()
     return render(request, 'computadoras/dept_list.html', {'deptos':deptos})
@@ -25,15 +27,20 @@ def dept_list(request):
 def base_comp(request):
     return render(request, 'computadoras/base_comp.html', {})
 
+
+#http://localhost:8000/pk/
 def comp_detalle(request, pk):
     comp = get_object_or_404(Computadora, pk=pk)
     print "Comp pk:"+comp
     return render(request, 'computadoras/comp_detalle.html', {'comp': comp})
 
+
+#http://localhost:8000/computadoras
 def comp_list(request):
     comps = Computadora.objects.all()
     return render(request, 'computadoras/comp_list.html', {'comps':comps})
 
+#http://localhost:8000/computadoras/nueva/
 def comp_nueva(request):
     form = ComputadoraForm(request.POST)
     try:
@@ -46,6 +53,8 @@ def comp_nueva(request):
         print "Error al crear nuevo post: ",error
     return render(request, 'computadoras/comp_nueva.html', {'form': form})
 
+
+#http://localhost:8000/computadoras/pk/edit
 def comp_edit(request, pk):
     comp = get_object_or_404(Computadora, pk=pk)
     form = PostForm(request.POST, instance=comp)
