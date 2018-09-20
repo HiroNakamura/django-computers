@@ -4,7 +4,7 @@
   
 {% for comp in comps %}
 <div class="content container">
-  <h3 class='cabeza'><a href="{% url 'comp_detalle' pk=comp.id %}">{{ comp.bien }}</a></h3>
+  <h3 class='cabeza'><a href="{% url 'comp_detalle' pk=comp.pk %}">{{ comp.bien }}</a></h3>
   <p><span>No. </span> {{ comp.asignar }} </p>
   <div class="table-responsive">          
     <table class="table" style="font-size: 12px;">
