@@ -13,7 +13,7 @@ class Departamento(models.Model):
         return "Departamento{id:"+str(self.id)+", area:"+self.area+", responsable:"+self.responsable+"}"
 
 
-class Computadora(models.Model):
+class Equipo(models.Model):
     #user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     bien = models.CharField(max_length=50,default='MXL4332-')
     arrendado = models.CharField(max_length=50,default='77')

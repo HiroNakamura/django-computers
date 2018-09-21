@@ -1,9 +1,9 @@
 from django import forms
-from .models import Computadora
+from .models import Equipo
 
 
-class ComputadoraForm(forms.ModelForm):
+class EquipoForm(forms.ModelForm):
     class Meta:
-        model = Computadora
+        model = Equipo
         fields = ('bien','arrendado','asignado','ip' ,'dns' ,'red'  ,'operativo' ,'tipo' ,'maquina' , 'dominio' ,'modelo' ,'administrador' ,'ubicacion' ,'actualizada' ,'departamento',)
      
