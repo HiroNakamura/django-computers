@@ -29,3 +29,10 @@ def comp_list(request):
     comps = Equipo.objects.all()
     return render(request, 'computadoras/comp_list.html', {'comps':comps})
 
+def comp_nueva(request):
+    form = EquipoForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("computadoras/nueva/")
+    return render(request, 'form_comp.html', {'form': form})
