@@ -31,8 +31,8 @@ def base_comp(request):
 
 #http://localhost:8000/pk/
 def comp_detalle(request, pk):
-    #comp = get_object_or_404(Computadora, pk=pk)
-    comp = Equipo.objects.get(pk=pk)
+    comp = get_object_or_404(Equipo, pk=pk)
+    #comp = Equipo.objects.get(pk=pk)
     print "Comp pk:"+comp
     return render(request, 'computadoras/comp_detalle.html', {'comp': comp})
 
@@ -59,7 +59,7 @@ def comp_nueva(request):
 
 #http://localhost:8000/computadoras/nueva/
 def comp_nueva(request):
-    form = PostForm(request.POST or None)
+    form = EquipoForm(request.POST or None)
     print "Formulario: ",form
     if request.method == 'POST':
         if form.is_valid():
@@ -72,7 +72,7 @@ def comp_nueva(request):
 #http://localhost:8000/computadoras/pk/edit
 def comp_edit(request, pk):
     comp = get_object_or_404(Equipo, pk=pk)
-    form = PostForm(request.POST, instance=comp)
+    form = EquipoForm(request.POST, instance=comp)
     valido = "Formulario valido" if form.is_valid() else "Formulario no valido"
     if request.method == "POST":
         print "form: ",form
