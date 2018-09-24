@@ -68,8 +68,8 @@ class Equipo(models.Model):
     def asignar(self):
         tmp = "no asignado" if self.asignado==0 else str(self.asignado)
         return tmp
-   
-        
+
+
 class Usuario(models.Model):
     nombre = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
@@ -89,3 +89,6 @@ class Usuario(models.Model):
     )
     cargo = models.CharField(max_length=50,choices=CARGO_CHOICES, default='CAPTURISTA ')
     computadora =  models.ForeignKey(Equipo)
+
+    def __str__(self):
+        return "Usuario{id:"+str(self.id)+", nombre:"+self.nombre+" "+self.apellidos+", usuario:"+self.usuario+", cargo: "+self.cargo+", compuadora: "+self.computadora.bien+", departamento: "+self.computadora.departamento.area+"}"
