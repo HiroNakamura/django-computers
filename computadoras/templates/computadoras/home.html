@@ -16,15 +16,16 @@
             <a href="{% url 'comp_nueva' %}" class="top-menu">
             <span class="glyphicon glyphicon-plus"></span>
         </a></h1>
+    </div>
         <!--<div class="home_comp">  
         <a href="/"  class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"></span> Home
-              </a></div> 
-                    </div>-->
+              </a></div> -->
+                    
   
 {% for comp in comps %}
 <div class="content container">
-  <h3 class='cabeza'>Aqui
+  <h3 class='cabeza'>
     <a href="{% url 'comp_detalle' pk=comp.pk %}">{{ comp.bien }}
     </a>
   </h3>
