@@ -5,6 +5,7 @@ from .models import Usuario
 from django.views.defaults import page_not_found
 from django.conf import settings
 from .forms import EquipoForm
+from .forms import UsuarioForm
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, HttpResponseRedirect
@@ -35,6 +36,15 @@ def usuario_detalle(request, pk):
     #comp = Equipo.objects.get(pk=pk)
     print "Usuario: ", user.usuario
     return render(request, 'computadoras/usuario/usuario_detalle.html', {'user': user})
+
+def usuario_nuevo(request):
+    form = UsuarioForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return render(request, 'computadoras/usuarios_list.html', {'form': form})
+            #return HttpResponseRedirect("computadoras/nueva/")
+    return render(request, 'computadoras/form_usuario.html', {'form': form})
 
 
 def comp_detalle(request, pk):
