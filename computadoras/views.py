@@ -16,7 +16,8 @@ def pag_error_404(request):
 
 #http://localhost:8000
 def home(request):
-    return render(request, 'computadoras/home.html',{})
+    comps = Equipo.objects.all()
+    return render(request, 'computadoras/home.html',{'comps':comps})
 
 #http://localhost:8000/departamentos
 def dept_list(request):
@@ -24,15 +25,18 @@ def dept_list(request):
     return render(request, 'computadoras/dept_list.html', {'deptos':deptos})
 
 
-#http://localhost:8000/computadoras
-def comp_list(request):
-    comps = Equipo.objects.all()
-    return render(request, 'computadoras/comp_list.html', {'comps':comps})
+def comp_detalle(request, pk):
+    comp = get_object_or_404(Equipo, pk=pk)
+    #comp = Equipo.objects.get(pk=pk)
+    print "Computadora: ", comp.bien
+    return render(request, 'computadoras/comp_detalle.html', {'comp': comp})
+
 
 def comp_nueva(request):
     form = EquipoForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("computadoras/nueva/")
-return render(request, 'form_comp.html', {'form': form})
+            return render(request, 'computadoras/form_comp.html', {'form': form})
+            #return HttpResponseRedirect("computadoras/nueva/")
+    return render(request, 'computadoras/form_comp.html', {'form': form})
