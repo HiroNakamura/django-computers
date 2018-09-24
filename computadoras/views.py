@@ -1,6 +1,7 @@
 from django.shortcuts import render , get_object_or_404,redirect 
 from .models import Departamento
 from .models import Equipo
+from .models import Usuario
 from django.views.defaults import page_not_found
 from django.conf import settings
 from .forms import EquipoForm
@@ -23,6 +24,11 @@ def home(request):
 def dept_list(request):
     deptos = Departamento.objects.all()
     return render(request, 'computadoras/dept_list.html', {'deptos':deptos})
+
+
+def usuarios(request):
+    users = Usuario.objects.all()
+    return render(request, 'computadoras/usuarios_list.html', {'users':users})
 
 
 def comp_detalle(request, pk):
