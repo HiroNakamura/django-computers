@@ -4,6 +4,27 @@ from django.db import models
 from django.utils import timezone
 
 
+class Usuario(models.Model):
+    nombre = models.CharField(max_length=50)
+    apellidos = models.CharField(max_length=50)
+    usuario = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    CARGO_CHOICES = (
+        ('CAPTURISTA', 'CAPTURISTA'),
+        ('PROGRAMADOR', 'PROGRAMADOR'),
+        ('NO ESPECIFICADO','NO ESPECIFICADO'),
+        ('DISENADOR','DISENADOR'),
+        ('SERVICIO SOCIAL','SERVICIO SOCIAL'),
+        ('LIDER DE PROYECTO','LIDER DE PROYECTO'),
+        ('JEFE DE AREA','JEFE DE AREA'),
+        ('SOPORTE TECNICO','SOPORTE TECNICO'),
+        ('INVESTIGADOR','INVESTIGADOR'),
+        ('DIRECTOR GENERAL','DIRECTOR GENERAL'),
+    )
+    cargo = models.CharField(max_length=50,choices=CARGO_CHOICES, default='CAPTURISTA ')
+    computadora =  models.ForeignKey(Equipo)
+   
+
 class Departamento(models.Model):
     #user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     area = models.CharField(max_length=50)
