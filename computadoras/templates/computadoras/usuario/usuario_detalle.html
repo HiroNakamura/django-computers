@@ -12,54 +12,50 @@
 <body>
 
     <div class="comp">    
-        <h1 style="font-family: Monoton;">Usuarios
-            <a href="#" class="top-menu">
-            <span class="glyphicon glyphicon-plus"></span>
-        </a></h1> 
-    </div>
+        <h1 style="font-family: Monoton;">Usuarios detalle +
+            </h1>
         <div class="home_comp">  
         <a href="/"  class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"></span> Home
               </a></div> 
-                    
+                    </div>
   
-{% for user in users %}
+
 <div class="content container">
-  <h3 class='cabeza'>
-    <a href="{% url 'usuario_detalle' pk=user.pk %}">{{ user.cargo }}
-    </a>
+  <h3 class='cabeza'><a href="#"></a>{{ user.cargo }}</a></h3>
   </h3>
   <p><span>No. </span> {{ user.id }} </p>
 
   <div class="table-responsive">          
     <table class="table" style="font-size: 12px;">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Apellidos</th>
-          <th>Usuario</th>
-           <th>Password</th>
-           <th>Cargo</th>
-           <th>Computadora</th>
-           <th>Departamento</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-             <td>{{ user.nombre }}</td>
-             <td>{{ user.apellidos }}</td>
-             <td>{{ user.usuario }}</td>
-             <td>{{ user.password }}</td>
-             <td>{{ user.cargo }}</td>
-             <td>{{ user.computadora.bien }}</td>
-             <td>{{ user.computadora.departamento.area }}</td>
-            </tr>
-          </tbody>
+            <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellidos</th>
+                      <th>Usuario</th>
+                       <th>Password</th>
+                       <th>Cargo</th>
+                       <th>Computadora</th>
+                       <th>Departamento</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                         <td>{{ user.nombre }}</td>
+                         <td>{{ user.apellidos }}</td>
+                         <td>{{ user.usuario }}</td>
+                         <td>{{ user.password }}</td>
+                         <td>{{ user.cargo }}</td>
+                         <td>{{ user.computadora.bien }}</td>
+                         <td>{{ user.computadora.departamento.area }}</td>
+                        </tr>
+                      </tbody>
         </table>
       </div> 
 
     </div>
-{% endfor %}
+
+
 
 </body>
 </html>

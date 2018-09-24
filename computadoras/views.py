@@ -30,6 +30,13 @@ def usuarios_list(request):
     return render(request, 'computadoras/usuarios_list.html', {'users':users})
 
 
+def usuario_detalle(request, pk):
+    user = get_object_or_404(Usuario, pk=pk)
+    #comp = Equipo.objects.get(pk=pk)
+    print "Usuario: ", user.usuario
+    return render(request, 'computadoras/usuario/usuario_detalle.html', {'user': user})
+
+
 def comp_detalle(request, pk):
     comp = get_object_or_404(Equipo, pk=pk)
     #comp = Equipo.objects.get(pk=pk)
