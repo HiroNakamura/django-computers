@@ -16,11 +16,6 @@
             <a href="#" class="top-menu">
             <span class="glyphicon glyphicon-plus"></span>
         </a></h1> 
-        <div>
-            <button type="button" class="glyphicon glyphicon-user">
-            <a href="#"> Usuarios </a> 
-            </button>
-        </div>
     </div>
         <div class="home_comp">  
         <a href="/"  class="btn btn-info btn-lg">
@@ -41,35 +36,23 @@
       <thead>
         <tr>
           <th>Nombre</th>
-          <th>Aperllidos</th>
-          <th>Dns</th>
-           <th>Red</th>
-           <th>Sist.operativo</th>
-           <th>Tipo</th>
-           <th>Modelo</th>
-           <th>Dominio</th>
-           <th>M&aacute;quina</th>
-           <th>Administrador</th>
-           <th>Piso</th>
-           <th>&Aacute;rea</th>
-           <th>Estado</th>
+          <th>Apellidos</th>
+          <th>Usuario</th>
+           <th>Password</th>
+           <th>Cargo</th>
+           <th>Computadora</th>
+           <th>Departamento</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-             <td>{{ comp.arrendado }}</td>
-             <td>{{ comp.ip }}</td>
-             <td>{{ comp.dns }}</td>
-             <td>{{ comp.red }}</td>
-             <td>{{ comp.operativo }}</td>
-             <td>{{ comp.tipo }}</td>
-             <td>{{ comp.modelo }}</td>
-             <td>{{ comp.dominio }}</td>
-             <td>{{ comp.maquina }}</td>
-             <td>{{ comp.administrador }}</td>
-             <td>{{ comp.ubicacion }}</td>
-             <td>{{ comp.departamento.area }}</td>
-             <td>{{ comp.actualizar }}</td>
+             <td>{{ user.nombre }}</td>
+             <td>{{ user.apellidos }}</td>
+             <td>{{ user.usuario }}</td>
+             <td>{{ user.password }}</td>
+             <td>{{ user.cargo }}</td>
+             <td>{{ user.computadora.bien }}</td>
+             <td>{{ user.computadora.departamento.bien }}</td>
             </tr>
           </tbody>
         </table>

@@ -25,8 +25,7 @@ def dept_list(request):
     deptos = Departamento.objects.all()
     return render(request, 'computadoras/dept_list.html', {'deptos':deptos})
 
-
-def usuarios(request):
+def usuarios_list(request):
     users = Usuario.objects.all()
     return render(request, 'computadoras/usuarios_list.html', {'users':users})
 
