@@ -1,4 +1,4 @@
-from django.shortcuts import render , get_object_or_404
+from django.shortcuts import render , get_object_or_404,redirect 
 from .models import Departamento
 from .models import Equipo
 from django.views.defaults import page_not_found
@@ -35,4 +35,4 @@ def comp_nueva(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect("computadoras/nueva/")
-    return render(request, 'form_comp.html', {'form': form})
+return render(request, 'form_comp.html', {'form': form})
