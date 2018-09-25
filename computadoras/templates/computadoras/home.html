@@ -106,19 +106,20 @@
     <div id="todo" style="visibility: hidden;">
     
             {% for comp in comps %} 
-             <p>Arrendado:<span> {{ comp.arrendado }}   </span>
-              IP:<span>{{ comp.ip }}</span>  
-              Dns: <span>{{ comp.dns }}</span> 
-             Red: <span>{{ comp.red }}</span> 
-             Sist.operativo: <span>{{ comp.operativo }}</span>  
-             Tipo: <span>{{ comp.tipo }}</span> 
-             Modelo: <span>{{ comp.modelo }}</span> 
-            Dominio: <span>{{ comp.dominio }}</span> 
-             M&aacute;quina: <span>{{ comp.maquina }}</span> 
-             Administrador: <span>{{ comp.administrador }}</span> 
-             Piso:<span>{{ comp.ubicacion }}</span> 
-             &Aacute;rea: <span>{{ comp.departamento.area }}</span>
-             Estado: <span>{{ comp.actualizar }}</span> </p>
+             <p>
+              <b>Arrendado:</b><span> {{ comp.arrendado }}   </span>
+              <b> IP:</b><span>{{ comp.ip }}</span>  
+              <b>Dns: </b><span>{{ comp.dns }}</span> 
+              <b>Red:</b> <span>{{ comp.red }}</span> 
+              <b>Sist.operativo:</b> <span>{{ comp.operativo }}</span>  
+              <b>Tipo:</b> <span>{{ comp.tipo }}</span> 
+              <b> Modelo:</b> <span>{{ comp.modelo }}</span> 
+             <b>Dominio: </b><span>{{ comp.dominio }}</span> 
+            <b> M&aacute;quina:</b> <span>{{ comp.maquina }}</span> 
+             <b> Administrador: </b><span>{{ comp.administrador }}</span> 
+             <b>Piso:</b><span>{{ comp.ubicacion }}</span> 
+             <b>&Aacute;rea: </b><span>{{ comp.departamento.area }}</span>
+             <b>Estado:</b> <span>{{ comp.actualizar }}</span> </p>
             {% endfor %}
          
         </div>
