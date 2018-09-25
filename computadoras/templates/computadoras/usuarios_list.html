@@ -20,7 +20,7 @@
       };
       $('#cmd').click(function () {
           doc.fromHTML($('#todo').html(), 15, 15, {
-              'width': 100,
+              'width': 166,
               'elementHandlers': specialElementHandlers
           });
           doc.save('users.pdf');
@@ -89,13 +89,13 @@
     
     {% for user in users %} 
      <p>
-        Cargo: <span> {{ user.cargo }}   </span> 
-      Nombre:<span> {{ user.nombre }}   </span>
-      Apellidos:<span>{{ user.apellidos }}</span>  
-      Usuario: <span>{{ user.usuario }}</span> 
-      Password: <span>{{ user.password }}</span> 
-      Computadora: <span>{{ user.computadora.bien }}</span>  
-      Departamento: <span>{{ user.computadora.departamento.area }}</span> 
+       <b>Cargo:</b>  <span> {{ user.cargo }}   </span> 
+       <b>Nombre:</b><span> {{ user.nombre }}   </span>
+      <b>Apellidos:</b><span>{{ user.apellidos }}</span>  
+      <b>Usuario:</b> <span>{{ user.usuario }}</span> 
+      <b>Password:</b> <span>{{ user.password }}</span> 
+      <b>Computadora:</b> <span>{{ user.computadora.bien }}</span>  
+      <b> Departamento:</b> <span>{{ user.computadora.departamento.area }}</span> 
       </p>
     {% endfor %}
  
