@@ -29,7 +29,8 @@ def dept_list(request):
 
 def usuarios_list(request):
     users = Usuario.objects.all()
-    return render(request, 'computadoras/usuarios_list.html', {'users':users})
+    cantidad = len(users)
+    return render(request, 'computadoras/usuarios_list.html', {'users':users,'cantidad':cantidad})
 
 
 def usuario_detalle(request, pk):
