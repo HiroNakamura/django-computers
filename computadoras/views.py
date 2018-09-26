@@ -19,7 +19,8 @@ def pag_error_404(request):
 #http://localhost:8000
 def home(request):
     comps = Equipo.objects.all()
-    return render(request, 'computadoras/home.html',{'comps':comps})
+    cantidad = len(comps)
+    return render(request, 'computadoras/home.html',{'comps':comps,'cantidad':cantidad})
 
 #http://localhost:8000/departamentos
 def dept_list(request):
