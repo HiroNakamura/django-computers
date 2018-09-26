@@ -11,10 +11,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, HttpResponseRedirect
 
 def pag_error_404(request):
-    context={}
+    #context={}
     context={"project_name":settings.PROJECT_NAME}
-    return render(request,'computadoras/404.html',context)
-    #return page_not_found(request, '404.html',{})
+    #return render(request,'computadoras/404.html',context)
+    return page_not_found(request, 'computadoras/static/404.html',context)
 
 #http://localhost:8000
 def home(request):
