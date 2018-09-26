@@ -9,6 +9,10 @@ from .forms import UsuarioForm
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, HttpResponseRedirect
+from django.db import connection
+
+
+
 
 def pag_error_404(request):
     #context={}
@@ -18,9 +22,14 @@ def pag_error_404(request):
 
 #http://localhost:8000
 def home(request):
+    cursor = connection.cursor()
+    cursor.execute('''SELECT count(*) FROM computadoras_equipo WHERE computadoras_equipo.bien LIKE '%MXL4332%' ''') 
+    arrendadas = cursor.fetchone()
+    cursor.execute('''SELECT count(*) FROM computadoras_equipo WHERE computadoras_equipo.bien NOT LIKE '%MXL4332%' ''') 
+    propias = cursor.fetchone()
     comps = Equipo.objects.all()
     cantidad = len(comps)
-    return render(request, 'computadoras/home.html',{'comps':comps,'cantidad':cantidad})
+    return render(request, 'computadoras/home.html',{'comps':comps,'cantidad':cantidad,'arrendadas':arrendadas,'propias':propias})
 
 #http://localhost:8000/departamentos
 def dept_list(request):

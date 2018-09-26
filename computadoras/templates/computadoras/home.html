@@ -39,7 +39,10 @@
             <a href="{% url 'comp_nueva' %}" class="top-menu">
             <span class="glyphicon glyphicon-plus"></span>
         </a></h1> 
-        <p>No. de computadoras registradas: <span>{{ cantidad }}</span></p>
+        <p>No. de computadoras registradas: <span>{{ cantidad }}</span>
+          , Arrendadas: <span>{{ arrendadas }}</span>
+          , Propias: <span>{{ propias }}</span>
+        </p>
         <div>
             <a href="{% url 'usuarios_list' %}" class="glyphicon glyphicon-user"> Usuarios </a> 
             <a href="#" id="cmd" > Imprime </a>
