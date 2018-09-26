@@ -91,4 +91,4 @@ class Usuario(models.Model):
     computadora =  models.ForeignKey(Equipo)
 
     def __str__(self):
-        return "Usuario{id:"+str(self.id)+", nombre:"+self.nombre+" "+self.apellidos+", usuario:"+self.usuario+", cargo: "+self.cargo+", compuadora: "+self.computadora.bien+", departamento: "+self.computadora.departamento.area+"}"
+        return "Usuario{id:"+str(self.id)+", nombre:"+self.nombre+" "+self.apellidos+", usuario:"+self.usuario+", cargo: "+self.cargo+", computadora: "+self.computadora.bien+", departamento: "+self.computadora.departamento.area+"}"
