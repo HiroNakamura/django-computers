@@ -1,9 +1,9 @@
 body{
-    background-color:#BDBDBD;
+    background-color:#8258FA;
 }
 
 h1 {
-    background-color:#BDBDBD;
+    background-color:#8258FA;
     color: #F2F2F2 ;
     margin: 0px;
     margin-left: 110px;
@@ -20,16 +20,16 @@ h3.cabeza{
 
 
 div{
-    background-color: #E6E6E6;
+    background-color: #F2F2F2;
     border-radius: 15px 15px 15px 15px;
 }
 
 div.comp{
-    background-color: #BDBDBD;
+    background-color:#8258FA;
 }
 
 #cabeza{
-    background-color: #E6E6E6;
+    background-color: #F2F2F2;
     width: 0px; 
     left: 102px; 
     position: relative; 
@@ -37,7 +37,7 @@ div.comp{
 }
 
 #titulo{
-    background-color: #E6E6E6;
+    background-color: #F2F2F2;
     width: 990px;
     left: 150px;
     position: relative;
@@ -46,6 +46,6 @@ div.comp{
 
 div.home_comp{
     position: relative;
-    background-color: #BDBDBD;
+    background-color: #8258FA;
     left:108px;
 }
