@@ -50,7 +50,8 @@
 {% for user in users %}
 <div class="content container">
   <h3 class='cabeza'>
-    <a href="{% url 'usuario_detalle' pk=user.pk %}">{{ user.cargo }}
+    <a href="{% url 'usuario_detalle' pk=user.pk %}">
+        {{ user.nombre }}  {{ user.apellidos_get }} <span style="font-size:12px; color:#FF4000;"> {{ user.cargo }} </span> 
     </a>
   </h3>
   <p><span>No. </span> {{ user.id }} </p>
