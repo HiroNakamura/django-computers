@@ -11,9 +11,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, HttpResponseRedirect
 from django.db import connection
 
-
-
-
 def pag_error_404(request):
     #context={}
     context={"project_name":settings.PROJECT_NAME}
@@ -38,19 +35,22 @@ def home(request):
 #http://localhost:8000/departamentos
 def dept_list(request):
     deptos = Departamento.objects.all()
-    return render(request, 'computadoras/dept_list.html', {'deptos':deptos})
+    context={'deptos':deptos}
+    return render(request, 'computadoras/dept_list.html', context)
 
 def usuarios_list(request):
     users = Usuario.objects.all()
     cantidad = len(users)
-    return render(request, 'computadoras/usuarios_list.html', {'users':users,'cantidad':cantidad})
+    context = {'users':users,'cantidad':cantidad}
+    return render(request, 'computadoras/usuarios_list.html', context)
 
 
 def usuario_detalle(request, pk):
     user = get_object_or_404(Usuario, pk=pk)
     #comp = Equipo.objects.get(pk=pk)
     print "Usuario: ", user.usuario
-    return render(request, 'computadoras/usuario/usuario_detalle.html', {'user': user})
+    context = {'user': user}
+    return render(request, 'computadoras/usuario/usuario_detalle.html', context)
 
 def usuario_nuevo(request):
     form = UsuarioForm(request.POST or None)
@@ -66,7 +66,8 @@ def comp_detalle(request, pk):
     comp = get_object_or_404(Equipo, pk=pk)
     #comp = Equipo.objects.get(pk=pk)
     print "Computadora: ", comp.bien
-    return render(request, 'computadoras/comp_detalle.html', {'comp': comp})
+    context = {'comp': comp}
+    return render(request, 'computadoras/comp_detalle.html', context)
 
 
 def comp_nueva(request):
