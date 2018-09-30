@@ -32,7 +32,7 @@ def home(request):
     titulo = "Bienvenido al sistema"
     if request.user.is_authenticated:
         titulo = "Bienvenido al sistema %s" %(request.user)
-    context = {'comps':comps,'cantidad':cantidad,'arrendadas':arrendadas,'propias':propias}
+    context = {'comps':comps,'cantidad':cantidad,'arrendadas':arrendadas,'propias':propias,"titulo":titulo}
     return render(request, 'computadoras/home.html',context)
 
 #http://localhost:8000/departamentos
