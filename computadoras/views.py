@@ -29,7 +29,11 @@ def home(request):
     propias = cursor.fetchone()
     comps = Equipo.objects.all()
     cantidad = len(comps)
-    return render(request, 'computadoras/home.html',{'comps':comps,'cantidad':cantidad,'arrendadas':arrendadas,'propias':propias})
+    titulo = "Bienvenido al sistema"
+    if request.user.is_authenticated:
+        titulo = "Bienvenido al sistema %s" %(request.user)
+    context = {'comps':comps,'cantidad':cantidad,'arrendadas':arrendadas,'propias':propias}
+    return render(request, 'computadoras/home.html',context)
 
 #http://localhost:8000/departamentos
 def dept_list(request):
