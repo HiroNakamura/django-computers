@@ -5,6 +5,7 @@ from .models import Usuario
 
 class AdminDepartamento(admin.ModelAdmin):
   list_display = ["area","responsable"]
+  list_display_links = ["responsable"]
   list_filter = ["area"]
   list_editable = ["responsable"]
   search_fields = ["area","responsable"]
@@ -13,6 +14,7 @@ class AdminDepartamento(admin.ModelAdmin):
 
 class AdminEquipo(admin.ModelAdmin):
   list_display = ["bien","arrendado","asignao","ip","departamento"]
+  list_display_links = ["bien"]
   list_filter = ["bien","arrendado","asignado","ip"]
   list_editable = ["asignado","ip","dns","piso","actualizada","departamento"]
   search_fields = ["bien","arrendado","asignado","ip","actualizada"]
@@ -21,6 +23,7 @@ class AdminEquipo(admin.ModelAdmin):
     
 class AdminUsuario(admin.ModelAdmin):
   list_display = ["usuario","nombre","apellidos","cargo"]
+  list_display_links = ["cargo"]
   list_filter = ["usuario","nombre","apellidos","cargo"]
   list_editable = ["usuario","nombre","apellidos","cargo","password","computadora"]
   search_fields = ["usuario","nombre","apellidos","cargo","computadora"]
