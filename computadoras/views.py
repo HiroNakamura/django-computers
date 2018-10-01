@@ -89,9 +89,21 @@ def comp_detalle(request, pk):
 
 def comp_nueva(request):
     form = EquipoForm(request.POST or None)
+    titulo= "Ingresar nueva computadora"
+    context = {'form':form,'titulo':titulo}
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return render(request, 'computadoras/form_comp.html', {'form': form})
+            return render(request, 'computadoras/form_comp.html', context)
             #return HttpResponseRedirect("computadoras/nueva/")
-    return render(request, 'computadoras/form_comp.html', {'form': form})
+    return render(request, 'computadoras/form_comp.html', context)
+
+def comp_update(request, pk):
+    instance = Equipo.objects.get(pk=pk)
+    form = EquipoForm(request.POST or None, instance=instance)
+    titulo = "Actualizar computadora existente"
+    context = {'form':form,'titulo':titulo}
+    if form.is_valid():
+          form.save()
+          return render(request, 'computadoras/form_comp.html', context)
+    return render(request, 'computadoras/form_comp.html', context)
