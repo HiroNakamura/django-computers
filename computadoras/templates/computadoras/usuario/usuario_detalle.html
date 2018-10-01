@@ -26,7 +26,7 @@
   
 
 <div class="content container">
-  <h3 class='cabeza'><a href="#">
+  <h3 class='cabeza'><a href="{% url 'usuario_update' pk=user.pk %}">
       {{ user.nombre }}  {{ user.apellidos_get }} <span style="font-size:12px; color:#A4A4A4;"> {{ user.cargo }} </span> 
   </a></h3>
   </h3>
@@ -52,7 +52,11 @@
                          <td>{{ user.usuario }}</td>
                          <td>{{ user.password }}</td>
                          <td>{{ user.cargo }}</td>
-                         <td>{{ user.computadora.bien }}</td>
+                         <td>
+                            <a href="{% url 'comp_detalle' pk=user.computadora.pk %}">
+                                {{ user.computadora.bien }} 
+                                </a> 
+                         </td>
                          <td>{{ user.computadora.departamento.area }}</td>
                         </tr>
                       </tbody>

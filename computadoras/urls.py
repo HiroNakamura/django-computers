@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^computadoras/usuarios', views.usuarios_list, name='usuarios_list'),
     url(r'^computadoras/usuario/(?P<pk>[0-9]+)/$', views.usuario_detalle, name='usuario_detalle'),
     url(r'^computadoras/nuevo/$', views.usuario_nuevo, name='usuario_nuevo'),
+    url(r'^computadoras/(?P<pk>[0-9]+)/editaUser/$', views.usuario_update, name='usuario_update'),
 ]

@@ -61,12 +61,22 @@ def usuario_detalle(request, pk):
 
 def usuario_nuevo(request):
     form = UsuarioForm(request.POST or None)
+    titulo = "Ingresar nuevo usuario"
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return render(request, 'computadoras/usuarios_list.html', {'form': form})
+            return render(request, 'computadoras/usuarios_list.html', {'form': form,'titulo':titulo})
             #return HttpResponseRedirect("computadoras/nueva/")
-    return render(request, 'computadoras/form_usuario.html', {'form': form})
+    return render(request, 'computadoras/form_usuario.html', {'form': form,'titulo':titulo})
+
+def usuario_update(request, pk):
+    instance = Usuario.objects.get(pk=pk)
+    form = UsuarioForm(request.POST or None, instance=instance)
+    titulo = "Actualizar usuario existente"
+    if form.is_valid():
+          form.save()
+          return render(request, 'computadoras/usuarios_list.html', {'form': form,'titulo':titulo})
+    return render(request, 'computadoras/form_usuario.html', {'form': form,'titulo':titulo})
 
 
 def comp_detalle(request, pk):
