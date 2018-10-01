@@ -28,7 +28,9 @@ def home(request):
     cantidad = len(comps)
     titulo = "Bienvenido al sistema"
     if request.user.is_authenticated:
-        titulo = "Bienvenido al sistema %s" %(request.user)
+        admin = str(request.user)
+        admin = admin.upper()
+        titulo = "Bienvenido al sistema %s" %(admin)
     context = {'comps':comps,'cantidad':cantidad,'arrendadas':arrendadas,'propias':propias,"titulo":titulo}
     return render(request, 'computadoras/home.html',context)
 
@@ -41,7 +43,12 @@ def dept_list(request):
 def usuarios_list(request):
     users = Usuario.objects.all()
     cantidad = len(users)
-    context = {'users':users,'cantidad':cantidad}
+    titulo = "Bienvenido al sistema"
+    if request.user.is_authenticated:
+        admin = str(request.user)
+        admin = admin.upper()
+        titulo = "Bienvenido al sistema %s" %(admin)
+    context = {'users':users,'cantidad':cantidad,'titulo':titulo}
     return render(request, 'computadoras/usuarios_list.html', context)
 
 
