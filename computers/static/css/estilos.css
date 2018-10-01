@@ -1,9 +1,9 @@
 body{
-    background-color:#DF0101;
+    background-color:#EDEFEE;
 }
 
 h1 {
-    background-color:#DF0101;
+    background-color:#EDEFEE;
     color: #F2F2F2 ;
     margin: 0px;
     margin-left: 110px;
@@ -25,7 +25,7 @@ div{
 }
 
 div.comp{
-    background-color:#DF0101;
+    background-color:#EDEFEE;
 }
 
 #cabeza{
@@ -46,6 +46,6 @@ div.comp{
 
 div.home_comp{
     position: relative;
-    background-color: #DF0101;
+    background-color: #EDEFEE;
     left:108px;
 }
