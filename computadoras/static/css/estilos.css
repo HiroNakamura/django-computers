@@ -53,3 +53,15 @@ div.home_comp{
 a{
     color: #B40404;
 }
+
+.datos_comp{
+    position: relative;
+    top: 5px;
+    left: 118px;
+}
+
+.menu_comp{
+    position: relative;
+    top: 5px;
+    left: 118px;
+}

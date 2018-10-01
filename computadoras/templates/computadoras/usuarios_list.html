@@ -35,17 +35,19 @@
         <h1 style="font-family: Monoton;">Usuarios
             <a href="{% url 'usuario_nuevo' %}" class="top-menu">
             <span class="glyphicon glyphicon-plus"></span>
-        </a></h1> 
+        </a></h1>   
     </div>
         <div class="home_comp">  
         <a href="/"  class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"></span> Home
               </a>
-              <p>{{ titulo }} </p>
-              No. de usuarios registrados: <span>{{ cantidad }}</span>
+              <div class="datos_comp">
+                  No. de usuarios registrados: <span>{{ cantidad }}</span>
+                  <p>{{ titulo }} </p>
+                    </p></div>
               
             </div> 
-              <div>
+              <div class="menu_comp">
                   <a href="#" id="cmd" > Imprime </a>
               </div>
   
@@ -62,6 +64,7 @@
     <table class="table" style="font-size: 12px;">
       <thead>
         <tr>
+            <th></th>
           <th>Nombre</th>
           <th>Apellidos</th>
           <th>Usuario</th>
@@ -73,6 +76,9 @@
         </thead>
         <tbody>
           <tr>
+              <td>
+             <img src="{% static "img/'+user.usuario+'.png" %}" width="200" height="150"/>       
+              </td>
              <td>{{ user.nombre }}</td>
              <td>{{ user.apellidos }}</td>
              <td>{{ user.usuario }}</td>
