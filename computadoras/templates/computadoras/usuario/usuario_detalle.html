@@ -36,6 +36,7 @@
     <table class="table" style="font-size: 12px;">
             <thead>
                     <tr>
+                      <th></th>
                       <th>Nombre</th>
                       <th>Apellidos</th>
                       <th>Usuario</th>
@@ -47,6 +48,11 @@
                     </thead>
                     <tbody>
                       <tr>
+                          <td> 
+                              <img src="{{ user.imagen }}" 
+                              alt="{{ user.imagen }}" title="{{ user.imagen }}" 
+                              width="150" height="150"/>
+                             </td>
                          <td>{{ user.nombre }}</td>
                          <td>{{ user.apellidos }}</td>
                          <td>{{ user.usuario }}</td>
