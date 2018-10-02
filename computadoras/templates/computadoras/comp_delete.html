@@ -1,0 +1,79 @@
+
+{% load staticfiles %}
+
+<html><head>
+    <title>Computadoras</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Holtwood One SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Monoton&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <script src="{% static 'js/funciones.js' %}"></script>
+</head>
+<body>
+        <div class="comp">    
+                <h1 style="font-family: Monoton;">Computadoras borrar
+                    </h1>
+        <div class="home_comp">  
+                <a href="/"  class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-home"></span> Home
+                      </a>
+                      <h3>
+                            {{ titulo }}
+                        </h3>
+                    </div>
+    </div>
+
+
+
+<div class="content container" style="background-color: #A9E2F3;">
+        <h3 class='cabeza'><a title="Editar computadora:  {{ comp.bien}}" href="{% url 'comp_update' pk=comp.pk %}">{{ comp.bien }}</a></h3>
+      
+        <p><span>No. </span> {{ comp.asignar }} </p>
+      
+        <div class="table-responsive">          
+          <table class="table" style="font-size: 12px;">
+            <thead>
+              <tr>
+                <th>Arrendado</th>
+                <th>IP</th>
+                <th>Dns</th>
+                 <th>Red</th>
+                 <th>Sist.operativo</th>
+                 <th>Tipo</th>
+                 <th>Modelo</th>
+                 <th>Dominio</th>
+                 <th>M&aacute;quina</th>
+                 <th>Administrador</th>
+                 <th>Piso</th>
+                 <th>&Aacute;rea</th>
+                 <th>Estado</th>
+                 <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                   <td>{{ comp.arrendado }}</td>
+                   <td>{{ comp.ip }}</td>
+                   <td>{{ comp.dns }}</td>
+                   <td>{{ comp.red }}</td>
+                   <td>{{ comp.operativo }}</td>
+                   <td>{{ comp.tipo }}</td>
+                   <td>{{ comp.modelo }}</td>
+                   <td>{{ comp.dominio }}</td>
+                   <td>{{ comp.maquina }}</td>
+                   <td>{{ comp.administrador }}</td>
+                   <td>{{ comp.ubicacion }}</td>
+                   <td>{{ comp.departamento.area }}</td>
+                   <td>{{ comp.actualizar }}</td>
+                   <td style="color:#B40431;font-weight:bold;">
+                      <a href="{% url 'comp_delete_confirm' pk=comp.pk %}" title="Eliminar este registro {{ comp.bien }} ">CONFIRMAR</a> 
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div> 
+      
+          </div>

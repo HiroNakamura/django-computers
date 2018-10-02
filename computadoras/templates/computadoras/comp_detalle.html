@@ -63,11 +63,14 @@
              <td>{{ comp.departamento.area }}</td>
              <td>{{ comp.actualizar }}</td>
              <td style="color:#B40431;font-weight:bold;">
-                <a href="#" title="Eliminar este registro {{ comp.bien }} ">ELIMINAR</a> 
+                <a 
+                href="{% url 'comp_delete' pk=comp.pk %}"
+                  title="Eliminar este registro {{ comp.bien }} ">ELIMINAR</a> 
                 </td>
             </tr>
           </tbody>
         </table>
+        
       </div> 
 
     </div>

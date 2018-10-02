@@ -116,3 +116,21 @@ def buscar_comp(request):
         'titulo':titulo,
     }
     return render(request, 'computadoras/buscar_comp.html',context)
+
+
+def comp_delete(request,pk):
+    comp = Equipo.objects.get(pk=pk)
+    context = {
+        'comp':comp,
+        'titulo': 'Registro a borrar'
+    }
+    return render(request,'computadoras/comp_delete.html',context)
+
+
+def comp_delete_confirm(request,pk):
+    comp = Equipo.objects.get(pk=pk)
+    print "Id: ",comp.pk 
+    print "Bien: ",comp.bien
+    comp.delete()
+    titulo = "Registro eliminado"
+    return render(request,'computadoras/comp_delete_confirm.html',{'titulo':titulo})
