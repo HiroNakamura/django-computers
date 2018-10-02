@@ -97,3 +97,7 @@ class Usuario(models.Model):
     def apellidos_get(self):
         apellidos = "" if self.apellidos=="NO ESPECIFICADO" else self.apellidos
         return apellidos
+
+    def imagen(self):
+        tmp = '/static/img/'+self.usuario+'.png'
+        return tmp
