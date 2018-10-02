@@ -14,4 +14,6 @@ urlpatterns = [
     url(r'^computadoras/buscar_comp', views.buscar_comp, name='buscar_comp'),
     url(r'^computadoras/(?P<pk>[0-9]+)/eliminaComp/$', views.comp_delete, name='comp_delete'),
     url(r'^computadoras/(?P<pk>[0-9]+)/eliminaCompCorfirm/$', views.comp_delete_confirm, name='comp_delete_confirm'),
+    url(r'^computadoras/usuario/(?P<pk>[0-9]+)/eliminaUser/$', views.usuario_delete, name='usuario_delete'),
+    url(r'^computadoras/usuario/(?P<pk>[0-9]+)/eliminaUserConfirm/$', views.usuario_delete_confirm, name='usuario_delete_confirm'),
 ]

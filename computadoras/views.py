@@ -131,6 +131,27 @@ def comp_delete_confirm(request,pk):
     comp = Equipo.objects.get(pk=pk)
     print "Id: ",comp.pk 
     print "Bien: ",comp.bien
+    print "Arrendado:",comp.arrendado
     comp.delete()
     titulo = "Registro eliminado"
     return render(request,'computadoras/comp_delete_confirm.html',{'titulo':titulo})
+
+
+
+def usuario_delete(request,pk):
+    usuario = Usuario.objects.get(pk=pk)
+    context = {
+        'user':usuario,
+        'titulo': 'Registro a borrar'
+    }
+    return render(request,'computadoras/usuario/usuario_delete.html',context)
+
+
+def usuario_delete_confirm(request,pk):
+    usuario = Usuario.objects.get(pk=pk)
+    print "Id: ",usuario.pk 
+    print "Nombre: ",usuario.nombre, " ", usuario.apellidos
+    print "Cargo:",usuario.cargo
+    usuario.delete()
+    titulo = "Registro eliminado"
+    return render(request,'computadoras/usuario/usuario_delete_confirm.html',{'titulo':titulo})

@@ -67,7 +67,7 @@
                          <td>{{ user.computadora.departamento.area }}</td>
                          <td style="color:#B40431;font-weight:bold;">
                                 <a 
-                                href="{% url 'usuario_delete' pk=user.pk %}"
+                                href="{% url 'usuario_delete_confirm' pk=user.pk %}"
                                   title="Eliminar este registro {{ user.nombre }}  {{ user.apellidos }} {{ user.cargo }}">
                                   ELIMINAR</a> 
                                 </td>
