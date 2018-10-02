@@ -107,3 +107,12 @@ def comp_update(request, pk):
           form.save()
           return render(request, 'computadoras/form_comp.html', context)
     return render(request, 'computadoras/form_comp.html', context)
+
+
+
+def buscar_comp(request):
+    titulo = "Buscar computadora"
+    context= {
+        'titulo':titulo,
+    }
+    return render(request, 'computadoras/buscar_comp.html',context)

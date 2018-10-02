@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^computadoras/nuevo/$', views.usuario_nuevo, name='usuario_nuevo'),
     url(r'^computadoras/(?P<pk>[0-9]+)/editaUser/$', views.usuario_update, name='usuario_update'),
     url(r'^computadoras/(?P<pk>[0-9]+)/editaComp/$', views.comp_update, name='comp_update'),
+    url(r'^computadoras/buscar_comp', views.buscar_comp, name='buscar_comp'),
 ]
