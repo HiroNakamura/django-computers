@@ -22,7 +22,7 @@
   
 
 <div class="content container">
-  <h3 class='cabeza'><a href="{% url 'comp_update' pk=comp.pk %}">{{ comp.bien }}</a></h3>
+  <h3 class='cabeza'><a title="Editar computadora:  {{ comp.bien}}" href="{% url 'comp_update' pk=comp.pk %}">{{ comp.bien }}</a></h3>
 
   <p><span>No. </span> {{ comp.asignar }} </p>
 
@@ -43,6 +43,7 @@
            <th>Piso</th>
            <th>&Aacute;rea</th>
            <th>Estado</th>
+           <th></th>
           </tr>
         </thead>
         <tbody>
@@ -60,6 +61,9 @@
              <td>{{ comp.ubicacion }}</td>
              <td>{{ comp.departamento.area }}</td>
              <td>{{ comp.actualizar }}</td>
+             <td style="color:#B40431;font-weight:bold;">
+                <a href="#" title="Eliminar este registro {{ comp.bien }} ">ELIMINAR</a> 
+                </td>
             </tr>
           </tbody>
         </table>

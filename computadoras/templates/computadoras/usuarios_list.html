@@ -33,12 +33,12 @@
 
     <div class="comp">    
         <h1 style="font-family: Monoton;">Usuarios
-            <a href="{% url 'usuario_nuevo' %}" class="top-menu">
+            <a title="Agregar nuevo registro" href="{% url 'usuario_nuevo' %}" class="top-menu">
             <span class="glyphicon glyphicon-plus"></span>
         </a></h1>   
     </div>
         <div class="home_comp">  
-        <a href="/"  class="btn btn-info btn-lg">
+        <a title="Regresar" href="/"  class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-home"></span> Home
               </a>
               <div class="datos_comp">
@@ -48,13 +48,13 @@
               
             </div> 
               <div class="menu_comp">
-                  <a href="#" id="cmd" > Imprime </a>
+                  <a title="Imprimir en PDF" href="#" id="cmd" > Imprime </a>
               </div>
   
 {% for user in users %}
 <div class="content container">
   <h3 class='cabeza'>
-    <a href="{% url 'usuario_detalle' pk=user.pk %}">
+    <a title="Ir a usuario: {{ user.nombre }}  {{ user.apellidos_get }} {{ user.cargo }}" href="{% url 'usuario_detalle' pk=user.pk %}">
         {{ user.nombre }}  {{ user.apellidos_get }} <span style="font-size:12px; color:#A4A4A4;"> {{ user.cargo }} </span> 
     </a>
   </h3>
@@ -87,7 +87,7 @@
              <td>{{ user.password }}</td>
              <td>{{ user.cargo }}</td>
              <td>
-                    <a href="{% url 'comp_detalle' pk=user.computadora.pk %}">
+                    <a title="Ir a computadora:  {{ user.computadora.bien }}" href="{% url 'comp_detalle' pk=user.computadora.pk %}">
                         {{ user.computadora.bien }} 
                         </a>     
                    

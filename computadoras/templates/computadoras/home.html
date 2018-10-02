@@ -36,7 +36,7 @@
 
     <div class="comp">    
         <h1 style="font-family: Monoton;">Computadoras
-            <a href="{% url 'comp_nueva' %}" class="top-menu">
+            <a title="Agregar nuevo registro" href="{% url 'comp_nueva' %}" class="top-menu">
             <span class="glyphicon glyphicon-plus"></span>
         </a></h1> 
         <div class="datos_comp">
@@ -46,8 +46,9 @@
         </p></div>
         <p align ="center"> {{ titulo }} </p>
         <div class="menu_comp">
-            <a href="{% url 'usuarios_list' %}" class="glyphicon glyphicon-user"> Usuarios </a> 
-            <a href="#" id="cmd" > Imprime </a>
+            <a title="Ir a lista de usuarios" href="{% url 'usuarios_list' %}" class="glyphicon glyphicon-user"> Usuarios </a> 
+            <a title="Obtener PDF" href="#" id="cmd" > Imprime </a>
+            <a title="Buscar registro" href="#" >Buscar computadora</a>
         </div>
     </div>
         <!--<div class="home_comp">  
@@ -59,7 +60,7 @@
 {% for comp in comps %}
 <div class="content container">
   <h3 class='cabeza'>
-    <a href="{% url 'comp_detalle' pk=comp.pk %}">{{ comp.bien }}
+    <a title="Editar registro"  href="{% url 'comp_detalle' pk=comp.pk %}">{{ comp.bien }}
     </a>
   </h3>
   <p><span>No. </span> {{ comp.asignar }} </p>
