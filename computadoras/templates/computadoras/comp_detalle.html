@@ -8,6 +8,7 @@
     <link href='//fonts.googleapis.com/css?family=Holtwood One SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Monoton&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <script src="{% static 'js/funciones.js' %}"></script>
 </head>
 <body>
 
@@ -21,7 +22,7 @@
                     </div>
   
 
-<div class="content container">
+<div class="content container" style="background-color: #A9E2F3;">
   <h3 class='cabeza'><a title="Editar computadora:  {{ comp.bien}}" href="{% url 'comp_update' pk=comp.pk %}">{{ comp.bien }}</a></h3>
 
   <p><span>No. </span> {{ comp.asignar }} </p>
