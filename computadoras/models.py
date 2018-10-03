@@ -101,3 +101,7 @@ class Usuario(models.Model):
     def imagen(self):
         tmp = '/static/img/'+self.usuario+'.png'
         return tmp
+
+    def password_get(self):
+        my_password = "***********" if self.usuario=="SOPTEC REDALYC" else self.password
+        return my_password
