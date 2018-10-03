@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <html><head>
-    <title>Usuarios</title>
+    <title>Departamentos</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -32,7 +32,7 @@
 <body>
 
     <div class="comp">    
-        <h1 style="font-family: Monoton;">Usuarios
+        <h1 style="font-family: Monoton;">Departamentos
             <a title="Agregar nuevo registro" href="{% url 'usuario_nuevo' %}" class="top-menu">
             <span class="glyphicon glyphicon-plus"></span>
         </a></h1>   
@@ -42,57 +42,40 @@
                 <span class="glyphicon glyphicon-home"></span> Home
               </a>
               <div class="datos_comp">
-                  No. de usuarios registrados: <span>{{ cantidad }}</span>
+                  No. de departamentos registrados: <span>{{ cantidad }}</span>
                   <p>{{ titulo }} </p>
                     </p></div>
               
             </div> 
               <div class="menu_comp">
-                  <a title="Imprimir en PDF" href="#" id="cmd" class="glyphicon glyphicon-print" > Imprime </a>
+                  <!--<a title="Imprimir en PDF" href="#" id="cmd" class="glyphicon glyphicon-print" > Imprime </a>-->
               </div>
   
-{% for user in users %}
+{% for depto in deptos %}
 <div class="content container" style="background-color: #A9E2F3;">
   <h3 class='cabeza'>
-    <a title="Ir a usuario: {{ user.nombre }}  {{ user.apellidos_get }} {{ user.cargo }}" href="{% url 'usuario_detalle' pk=user.pk %}">
-        {{ user.nombre }}  {{ user.apellidos_get }} <span style="font-size:12px; color:#A4A4A4;"> {{ user.cargo }} </span> 
+    <a title="Ir a area: {{ depto.area }}  " href="#">
+        {{ depto.area }}   <span style="font-size:12px; color:#A4A4A4;"> {{ depto.responsable }} </span> 
     </a>
   </h3>
-  <p><span>No. </span> {{ user.id }} </p>
+  <p><span>No. </span> {{ depto.id }} </p>
 
   <div class="table-responsive">          
     <table class="table" style="font-size: 12px;">
       <thead>
         <tr>
-            <th></th>
-          <th>Nombre</th>
-          <th>Apellidos</th>
-          <th>Usuario</th>
-           <th>Password</th>
-           <th>Cargo</th>
-           <th>Computadora</th>
-           <th>Departamento</th>
+          <th>A&acute;rea</th>
+          <th>Responsable</th>
           </tr>
         </thead>
         <tbody>
           <tr>
               <td> 
-             <img src="{{ user.imagen }}" 
-             alt="{{ user.imagen }}" title="{{ user.imagen }}" 
-             width="150" height="150"/>
+             {{ depto.area }}
             </td>
-             <td>{{ user.nombre }}</td>
-             <td>{{ user.apellidos }}</td>
-             <td>{{ user.usuario }}</td>
-             <td>{{ user.password }}</td>
-             <td>{{ user.cargo }}</td>
-             <td>
-                    <a title="Ir a computadora:  {{ user.computadora.bien }}" href="{% url 'comp_detalle' pk=user.computadora.pk %}">
-                        {{ user.computadora.bien }} 
-                        </a>     
-                   
-                </td>
-             <td>{{ user.computadora.departamento.area }}</td>
+            <td> 
+                    {{ depto.responsable }}
+                   </td>
             </tr>
           </tbody>
         </table>
@@ -101,26 +84,6 @@
     </div>
 {% endfor %}
 
-<!-- tabla oculta-->
-         
-<div id="todo" style="visibility: hidden;">
-    
-    {% for user in users %} 
-     <p>
-       <b>Cargo:</b>  <span> {{ user.cargo }}   </span> 
-       <b>Nombre:</b><span> {{ user.nombre }}   </span>
-      <b>Apellidos:</b><span>{{ user.apellidos }}</span>  
-      <b>Usuario:</b> <span>{{ user.usuario }}</span> 
-      <b>Password:</b> <span>{{ user.password }}</span> 
-      <b>Computadora:</b> <span>{{ user.computadora.bien }}</span>  
-      <b> Departamento:</b> <span>{{ user.computadora.departamento.area }}</span> 
-      </p>
-    {% endfor %}
- 
-</div>
-<div id="editor"></div>
-
-<!-- tabla oculta-->
 
 </body>
 </html>

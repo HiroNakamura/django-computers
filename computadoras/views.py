@@ -37,7 +37,9 @@ def home(request):
 #http://localhost:8000/departamentos
 def dept_list(request):
     deptos = Departamento.objects.all()
-    context={'deptos':deptos}
+    cantidad = len(deptos)
+    titulo = "Departamentos"
+    context={'deptos':deptos,'cantidad':cantidad}
     return render(request, 'computadoras/dept_list.html', context)
 
 def usuarios_list(request):
