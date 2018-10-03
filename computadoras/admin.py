@@ -13,7 +13,7 @@ class AdminDepartamento(admin.ModelAdmin):
     model = Departamento
 
 class AdminEquipo(admin.ModelAdmin):
-  list_display = ["bien","arrendado","asignado","ip","departamento"]
+  list_display = ["bien","arrendado","asignado","ip","dns","red","operativo","maquina","dominio","tipo","modelo","administrador","actualizada","departamento"]
   #list_display_links = ["bien"]
   list_filter = ["bien","arrendado","asignado","ip"]
   list_editable = ["asignado","ip","departamento"]
@@ -22,7 +22,7 @@ class AdminEquipo(admin.ModelAdmin):
     model = Equipo
     
 class AdminUsuario(admin.ModelAdmin):
-  list_display = ["usuario","nombre","apellidos","cargo"]
+  list_display = ["usuario","password","nombre","apellidos","cargo","computadora"]
   #list_display_links = ["cargo"]
   list_filter = ["usuario","nombre","apellidos","cargo"]
   list_editable = ["usuario","nombre","apellidos","cargo"]
