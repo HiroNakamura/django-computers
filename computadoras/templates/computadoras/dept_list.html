@@ -10,24 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-  $(window).on('load', function () {
-      var doc = new jsPDF();
-      var specialElementHandlers = {
-          '#editor': function (element, renderer) {
-              return true;
-          }
-      };
-      $('#cmd').click(function () {
-          doc.fromHTML($('#todo').html(), 15, 15, {
-              'width': 166,
-              'elementHandlers': specialElementHandlers
-          });
-          doc.save('users.pdf');
-      });
-  });
 
-</script>
 </head>
 <body>
 
