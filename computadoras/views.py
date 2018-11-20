@@ -17,8 +17,38 @@ def pag_error_404(request):
     #return render(request,'computadoras/404.html',context)
     return page_not_found(request, 'computadoras/static/404.html',context)
 
+
+#def home(request):
+#    cursor = connection.cursor()
+#    cursor.execute('''SELECT count(*) FROM computadoras_equipo WHERE computadoras_equipo.bien LIKE '%MXL4332%' ''') 
+#    arrendadas = cursor.fetchone()
+#    cursor.execute('''SELECT count(*) FROM computadoras_equipo WHERE computadoras_equipo.bien NOT LIKE '%MXL4332%' ''') 
+#    propias = cursor.fetchone()
+#    comps = Equipo.objects.all()
+#    cantidad = len(comps)
+#    titulo = "Bienvenido al sistema"
+#    if request.user.is_authenticated:
+#        admin = str(request.user)
+#        admin = admin.upper()
+#        titulo = "Bienvenido al sistema %s" %(admin)
+#    context = {'comps':comps,'cantidad':cantidad,'arrendadas':arrendadas,'propias':propias,"titulo":titulo}
+#    return render(request, 'computadoras/home.html',context)
+
 #http://localhost:8000
 def home(request):
+    return render(request, 'computadoras/home.html',{})
+
+#http://localhost:8000/departamentos
+def dept_list(request):
+    deptos = Departamento.objects.all()
+    cantidad = len(deptos)
+    titulo = "Departamentos"
+    context={'deptos':deptos,'cantidad':cantidad}
+    return render(request, 'computadoras/dept_list.html', context)
+
+
+#http://localhost:8000/computadoras
+def computadoras_list(request):
     cursor = connection.cursor()
     cursor.execute('''SELECT count(*) FROM computadoras_equipo WHERE computadoras_equipo.bien LIKE '%MXL4332%' ''') 
     arrendadas = cursor.fetchone()
@@ -32,15 +62,9 @@ def home(request):
         admin = admin.upper()
         titulo = "Bienvenido al sistema %s" %(admin)
     context = {'comps':comps,'cantidad':cantidad,'arrendadas':arrendadas,'propias':propias,"titulo":titulo}
-    return render(request, 'computadoras/home.html',context)
+    return render(request, 'computadoras/computadoras.html',context)
 
-#http://localhost:8000/departamentos
-def dept_list(request):
-    deptos = Departamento.objects.all()
-    cantidad = len(deptos)
-    titulo = "Departamentos"
-    context={'deptos':deptos,'cantidad':cantidad}
-    return render(request, 'computadoras/dept_list.html', context)
+
 
 def usuarios_list(request):
     users = Usuario.objects.all()

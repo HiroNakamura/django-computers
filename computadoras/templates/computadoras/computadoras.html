@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <html><head>
-    <title>Home</title>
+    <title>Computadoras</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -35,19 +35,10 @@
 <body>
 
     <div class="comp">    
-        <h1 style="font-family: Monoton;">Home </h1> 
-    </div>
-    <div>
-        <a href="\computadoras\computadoras">Computadoras</a>
-        <a href="\computadoras\usuarios">Usuarios</a>
-        <a href="\computadoras\departamentos">Departamentos</a>
-    </div>
-            <!-- <a title="Agregar nuevo registro" href="{% url 'comp_nueva' %}" class="top-menu">
-            <span class="glyphicon glyphicon-plus"></span> 
-        </a>-->
-    
-
-        <!--
+        <h1 style="font-family: Monoton;">Computadoras
+            <a title="Agregar nuevo registro" href="{% url 'comp_nueva' %}" class="top-menu">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a></h1> 
         <div class="datos_comp">
         <p>No. de computadoras registradas: <span>{{ cantidad }}</span>
           , Arrendadas: <span>{{ arrendadas }}</span>
@@ -61,7 +52,10 @@
             <a title="Buscar registro" href="{% url 'buscar_comp' %}"  >Buscar computadora</a>
         </div>
     </div>
-        
+        <!--<div class="home_comp">  
+        <a href="/"  class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-home"></span> Home
+              </a></div> -->
                     
   
 {% for comp in comps %}
@@ -115,7 +109,7 @@
 {% endfor %}
 <hr/>
 
-
+<!-- tabla oculta-->
          
     <div id="todo" style="visibility: hidden;">
     
@@ -139,10 +133,8 @@
         </div>
       <div id="editor"></div>
         
-    -->
+<!-- tabla oculta-->
  
 
 </body>
 </html>
-
-
